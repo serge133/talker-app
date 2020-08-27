@@ -1,21 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import TouchBoardScreen from './Screens/TouchBoardScreen';
 
-export default function App() {
+const Stack = createStackNavigator();
+const Tabs = createBottomTabNavigator();
+
+export default function Navigation() {
+  const TouchBoardStack = () => (
+    <Stack.Navigator>
+      <Stack.Screen
+        name='TouchBoard'
+        component={TouchBoardScreen}
+        options={{
+          title: 'Touch Board',
+        }}
+      />
+    </Stack.Navigator>
+  );
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tabs.Navigator>
+        <Tabs.Screen name='TouchBoardTab' component={TouchBoardStack} />
+      </Tabs.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
