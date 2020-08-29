@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import SentenceBar from '../Components/SentenceBar';
-import Touchboard from '../Components/Touchboard';
+import Touchboard from '../Components/Touchboard/Touchboard';
 
 export default function TouchBoardScreen() {
   return (
